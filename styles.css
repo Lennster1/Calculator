@@ -38,7 +38,7 @@
     gap: 4px;
 }
 
-.key, .clear {
+button {
     width: 100px;
     height: 75px;
     margin: 0px;

@@ -33,29 +33,43 @@ function operate(x, operator, y) {
 }
 
 let displayValue = [];
+let beforeOperator;
 
-const buttons = document.querySelectorAll(".key");
+const nums = document.querySelectorAll(".num");
 const clear = document.querySelector(".clear");
+const equal = document.querySelector(".equal");
 const display = document.querySelector(".input");
 function updateDisplay() {
   display.textContent = `${displayValue.join("")}`;
 }
-buttons.forEach((btn) => {
+nums.forEach((btn) => {
   btn.addEventListener("click", () => {
-    if (displayValue.length < 24) {
-        displayValue.push(btn.id);
-        console.log(displayValue.join(""));
-        console.log(displayValue.length);
-        updateDisplay();
+    if (displayValue.length < 24 && beforeOperator === true) {
+      a.push(btn.id);
+      displayValue.push(btn.id);
+      console.log(displayValue);
+      console.log(a);
+      updateDisplay();
+    } else if (displayValue.length < 24 && beforeOperator === false) {
+      b.push(btn.id);
+      displayValue.push(btn.id);
+      console.log(displayValue);
+      console.log(b);
+      updateDisplay();
     } else {
-        alert("Too many characters! Clear and try again.")
-        displayValue = [];
-        updateDisplay();
+      alert("You have entered too many characters! Try again");
+      a, b, (displayValue = []);
+      updateDisplay;
     }
-
   });
 });
 clear.addEventListener("click", () => {
   displayValue = [];
   updateDisplay();
+});
+
+equal.addEventListener("click", () => {
+  operator = displayValue.find(() => {
+    return "+", "-", "*", "/";
+  });
 });
