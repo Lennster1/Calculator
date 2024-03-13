@@ -18,17 +18,19 @@ let a, operator, b;
 function operate(x, operator, y) {
     switch (operator) {
         case "add":
-            add(a, b);
+            add(x, y);
             break;
         case "subtract":
-            subtract(a, b);
+            subtract(x, y);
             break;
         case "multiply":
-            multiply(a, b);
+            multiply(x, y);
             break;
         case "divide":
-            divide(a, b);
+            divide(x, y);
             break;
     };
 };
+
+let displayValue;
 

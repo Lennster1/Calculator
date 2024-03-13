@@ -5,6 +5,7 @@
 .calculator {
     margin: auto;
     display: flex;
+    padding: 4px;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
@@ -12,15 +13,28 @@
     gap: 0px;
 
     width: 400px;
-    height: 475px;
+    height: 600px;
     border: solid 8px darkgrey;
     background-color: rgb(164, 119, 63);
+}
+
+.display {
+    border-radius: 4px;
+    display: flex;
+    width: 380px;
+    background-color: aliceblue;
+    height: 80px;
+    margin-top: 8px;
+    font-family: monospace;
+    font-size: 2em;
+    font-weight: bold;
+    justify-content: end;
 }
 .keys {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 2px;
+    gap: 4px;
 }
 
 .key {
@@ -30,8 +44,9 @@
     box-sizing: border-box;
     border: solid whitesmoke;
     border-radius: 5px;
-
-    font-family: monospace;
-    font-size: 2em;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
     font-weight: bold;
+
+
 }
