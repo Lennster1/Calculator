@@ -32,7 +32,7 @@ function operate(x, operator, y) {
   }
 }
 
-let displayValue = [0];
+let displayValue = [];
 
 const buttons = document.querySelectorAll(".key");
 const clear = document.querySelector(".clear");
@@ -42,11 +42,17 @@ function updateDisplay() {
 }
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    displayValue.push(btn.id);
-    console.log(displayValue.join(""));
-    console.log(displayValue.length);
+    if (displayValue.length < 24) {
+        displayValue.push(btn.id);
+        console.log(displayValue.join(""));
+        console.log(displayValue.length);
+        updateDisplay();
+    } else {
+        alert("Too many characters! Clear and try again.")
+        displayValue = [];
+        updateDisplay();
+    }
 
-    updateDisplay();
   });
 });
 clear.addEventListener("click", () => {

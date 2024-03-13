@@ -21,6 +21,7 @@
 .display {
     border-radius: 4px;
     display: flex;
+    padding: 2px;
     width: 380px;
     background-color: aliceblue;
     height: 80px;
