@@ -14,28 +14,27 @@ function divide(a, b) {
   return a / b;
 }
 
-let a, operator, b;
+let operator;
+
 function operate(x, operator, y) {
   switch (operator) {
-    case "add":
-      add(x, y);
-      break;
-    case "subtract":
-      subtract(x, y);
-      break;
-    case "multiply":
-      multiply(x, y);
-      break;
-    case "divide":
-      divide(x, y);
-      break;
+    case "+":
+      return add(x, y);
+    case "-":
+      return subtract(x, y);
+    case "*":
+      return multiply(x, y);
+    case "/":
+      return divide(x, y);
   }
 }
-
+let a = [];
+let b = [];
 let displayValue = [];
-let beforeOperator;
+let containsOperator = true;
 
 const nums = document.querySelectorAll(".num");
+const opt = document.querySelectorAll(".operator");
 const clear = document.querySelector(".clear");
 const equal = document.querySelector(".equal");
 const display = document.querySelector(".input");
@@ -44,32 +43,44 @@ function updateDisplay() {
 }
 nums.forEach((btn) => {
   btn.addEventListener("click", () => {
-    if (displayValue.length < 24 && beforeOperator === true) {
+    if (displayValue.length < 24 && containsOperator === true) {
       a.push(btn.id);
       displayValue.push(btn.id);
-      console.log(displayValue);
-      console.log(a);
+      console.log(`displayValue: ${displayValue}`);
+      console.log(`a: ${a}`);
       updateDisplay();
-    } else if (displayValue.length < 24 && beforeOperator === false) {
+    } else if (displayValue.length < 24 && containsOperator === false) {
       b.push(btn.id);
       displayValue.push(btn.id);
-      console.log(displayValue);
-      console.log(b);
+      console.log(`displayValue: ${displayValue}`);
+      console.log(`b: ${b}`);
       updateDisplay();
     } else {
       alert("You have entered too many characters! Try again");
-      a, b, (displayValue = []);
-      updateDisplay;
+      [a, b, displayValue] = [[], [], []]
+      updateDisplay();
     }
   });
 });
+
+opt.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    containsOperator = false;
+    displayValue.push(btn.id);
+    updateDisplay();
+  });
+});
+
 clear.addEventListener("click", () => {
-  displayValue = [];
+  [a, b, displayValue] = [[], [], []]
   updateDisplay();
 });
 
 equal.addEventListener("click", () => {
-  operator = displayValue.find(() => {
-    return "+", "-", "*", "/";
-  });
+  containsOperator = true;
+  x = parseFloat(a.join(""));
+  y = parseFloat(b.join(""));
+  
+  console.log(operator);
+  
 });
