@@ -14,8 +14,6 @@ function divide(a, b) {
   return a / b;
 }
 
-let operator;
-
 function operate(x, operator, y) {
   switch (operator) {
     case "+":
@@ -30,6 +28,7 @@ function operate(x, operator, y) {
 }
 let a = [];
 let b = [];
+let operator;
 let displayValue = [];
 let containsOperator = true;
 
@@ -57,7 +56,7 @@ nums.forEach((btn) => {
       updateDisplay();
     } else {
       alert("You have entered too many characters! Try again");
-      [a, b, displayValue] = [[], [], []]
+      [a, b, displayValue] = [[], [], []];
       updateDisplay();
     }
   });
@@ -66,13 +65,14 @@ nums.forEach((btn) => {
 opt.forEach((btn) => {
   btn.addEventListener("click", () => {
     containsOperator = false;
+    operator = btn.id;
     displayValue.push(btn.id);
     updateDisplay();
   });
 });
 
 clear.addEventListener("click", () => {
-  [a, b, displayValue] = [[], [], []]
+  [a, b, displayValue, operator] = [[], [], [], ""];
   updateDisplay();
 });
 
@@ -80,7 +80,6 @@ equal.addEventListener("click", () => {
   containsOperator = true;
   x = parseFloat(a.join(""));
   y = parseFloat(b.join(""));
-  
-  console.log(operator);
+  display.textContent = operate(x, operator, y);
   
 });

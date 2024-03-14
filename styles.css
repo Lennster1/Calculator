@@ -14,8 +14,8 @@
 
     width: 400px;
     height: 600px;
-    border: solid 8px darkgrey;
-    background-color: rgb(164, 119, 63);
+    border: solid 8px #4CCD99;
+    background-color: #007F73;
 }
 
 .display {
@@ -43,6 +43,7 @@ button {
     height: 75px;
     margin: 0px;
     box-sizing: border-box;
+    background-color: #FFC700;
     border: solid whitesmoke;
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
